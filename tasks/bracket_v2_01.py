@@ -1,9 +1,10 @@
 from collections import deque
 
-entry = deque(input("Gimme brackets of all kinds: "))
+# entry = input("Gimme brackets of all kinds: ")
 
 # all commented code is for the covenience of testing
-def check_brackets(stack:deque) -> str:
+def check_brackets(stack) -> str:
+    stack = deque(stack)
 
     opening_brackets = "([{"
     closing_brackets = ")]}"
@@ -12,10 +13,12 @@ def check_brackets(stack:deque) -> str:
     open_brackets = []
 
     if "<" in stack or ">" in stack:
-        return "Sorry, we do not support angle brackets"
+        # return "Sorry, we do not support angle brackets"
+        return "Errors"
 
     if len(stack)%2 == 0:
-        return "Please enter brackets in pairs - they don't like to be on their own"
+        # return "Please enter brackets in pairs - they don't like to be on their own"
+        return "Errors"
         
     while len(stack) >= 1:
         if top in opening_brackets:
@@ -102,4 +105,4 @@ def check_brackets(stack:deque) -> str:
         return "Errors"
 
 
-print(check_brackets(entry))
+# print(check_brackets(entry))
